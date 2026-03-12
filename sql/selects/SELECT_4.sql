@@ -3,7 +3,7 @@ SELECT customers.name AS customer
 FROM customers
 JOIN orders ON orders.customer_id = customers.id
 ORDER BY orders.amount DESC
-FETCH FIRST 1 ROW WITH TIES; /* if there are more than one customer with the biggest order */
+FETCH FIRST 1 ROW WITH TIES; /* if there are several customers with the same order amount */
 
 -- USING JOIN + SUBQUERY
 SELECT customers.name AS customer
