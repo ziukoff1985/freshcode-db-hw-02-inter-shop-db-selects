@@ -1,4 +1,3 @@
-TRUNCATE TABLE models RESTART IDENTITY CASCADE;
 INSERT INTO models (title, description, brand_id)
 VALUES
 -- Samsung (ID: 1)

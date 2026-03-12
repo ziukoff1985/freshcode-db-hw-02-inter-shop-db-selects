@@ -1,4 +1,3 @@
-TRUNCATE TABLE item_types RESTART IDENTITY CASCADE;
 INSERT INTO item_types (title, description)
 VALUES
 ('Mobile Phone', 'Cellular communication devices'),

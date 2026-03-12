@@ -1,4 +1,3 @@
-TRUNCATE TABLE customers RESTART IDENTITY CASCADE;
 INSERT INTO customers (name, email)
 VALUES
 ('Alice Johnson', 'alice@test.com'), 

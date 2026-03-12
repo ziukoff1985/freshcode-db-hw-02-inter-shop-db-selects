@@ -1,33 +1,18 @@
--- SELECT customers.name AS customer
--- FROM customers
--- JOIN (SELECT customer_id, COUNT(*) AS order_count
---     FROM orders
---     GROUP BY customer_id)
--- AS orders_stat
--- ON orders_stat.customer_id = customers.id
--- WHERE MAX(orders_stat.order_count);
-
+-- USING JOIN
 SELECT customers.name AS customer
 FROM customers
 JOIN orders ON orders.customer_id = customers.id
-GROUP BY customers.name
+GROUP BY customers.id
 ORDER BY count(*) DESC
-LIMIT 1;
+FETCH FIRST 1 ROW WITH TIES; /* if there are more than one customer with the same number of orders */
 
+-- USING JOIN + SUBQUERY
 SELECT customers.name AS customer
 FROM customers
-JOIN (SELECT customer_id, COUNT(*) AS order_count
+JOIN (SELECT customer_id, count(*) AS orders_count
     FROM orders
-    GROUP BY customer_id)
-AS orders_stat
-ON orders_stat.customer_id = customers.id
-LIMIT 1;
-
-SELECT 
-    c.name, 
-    count(o.id) AS total_orders
-FROM customers c
-LEFT JOIN orders o ON c.id = o.customer_id
-GROUP BY c.id, c.name
-ORDER BY total_orders DESC
-LIMIT 1;
+    GROUP BY customer_id
+    ORDER BY orders_count DESC
+    FETCH FIRST 1 ROW WITH TIES /* if there are more than one customer with the same number of orders */
+) AS orders_stat
+ON orders_stat.customer_id = customers.id;

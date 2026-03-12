@@ -1,4 +1,3 @@
-TRUNCATE TABLE items RESTART IDENTITY CASCADE;
 INSERT INTO items
 (category_id, type_id, brand_id, model_id, price, store_id, amount)
 VALUES

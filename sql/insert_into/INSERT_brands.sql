@@ -1,4 +1,3 @@
-TRUNCATE TABLE brands RESTART IDENTITY CASCADE;
 INSERT INTO brands (title, description) 
 VALUES
 ('Samsung', 'Global electronics leader'),

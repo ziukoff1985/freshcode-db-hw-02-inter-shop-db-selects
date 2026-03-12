@@ -1,4 +1,3 @@
-TRUNCATE TABLE item_order RESTART IDENTITY CASCADE;
 INSERT INTO item_order (item_id, order_id)
 VALUES
 (1, 1), 
@@ -7,10 +6,10 @@ VALUES
 (4, 4), 
 (5, 5), 
 (6, 6), 
-(7, 7), -- Товари Еліс
+(7, 7),
 (44, 8), 
 (45, 8), 
-(7, 8), -- Майкл купив три дуже дорогі камери (ID 44, 45, 7) в одному замовленні
+(7, 8),
 (8, 9), 
 (9, 10), 
 (11, 11), 

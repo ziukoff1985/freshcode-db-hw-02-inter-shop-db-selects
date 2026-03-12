@@ -1,4 +1,3 @@
-TRUNCATE TABLE stores RESTART IDENTITY CASCADE;
 INSERT INTO stores (title, description)
 VALUES
 ('Main Warehouse', 'Central distribution hub in Kyiv'),
