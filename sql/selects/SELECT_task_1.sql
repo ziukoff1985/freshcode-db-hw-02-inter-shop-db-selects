@@ -3,7 +3,7 @@ SELECT brands.title AS brand, count(*) AS models_count
 FROM brands
 JOIN models ON models.brand_id = brands.id
 GROUP BY brands.id
-ORDER BY models_count DESC, brands.title;
+ORDER BY models_count DESC, brand;
 
 -- USING JOIN + SUBQUERY
 SELECT brands.title AS brand, models_stat.total_models AS models_count
